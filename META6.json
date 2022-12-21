@@ -1,0 +1,23 @@
+{
+  "auth": "cpan:bduggan",
+  "authors": [
+    "Brian Duggan"
+  ],
+  "description": "Tools to accompany repl",
+  "name": "Repl::Tools",
+  "license": "MIT",
+  "raku": "6.d",
+  "provides": {
+    "Repl::Tools": "lib/Repl/Tools.rakumod"
+  },
+  "repo-type": "git",
+  "source-url": "https://git.sr.ht/~bduggan/raku-repl-tools",
+  "tags": [
+    "Repl"
+  ],
+  "depends" : [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
