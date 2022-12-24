@@ -1,15 +1,16 @@
 ## Name
 
-Repl::Tools -- Some simple tools to accompany Raku's repl.
+Repl::Tools -- Some simple tools to accompany Raku's built-in repl statement.
 
 ## Description
 
 These are some simple tools to improve the experience of using
 the built-in `repl` to debug a raku program.
 
-Currently, there is only one tool:
+Currently, there are two tools:
 
 *  `w` : show information about the current file and stack.
+*  `qq` : quit the repl and also exit the current process
 
 ## Example
 

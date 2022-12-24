@@ -21,3 +21,7 @@ sub w is hidden-from-backtrace is export {
   }
   put "";
 }
+
+sub qq is hidden-from-backtrace is export {
+  &CORE::exit()
+}
