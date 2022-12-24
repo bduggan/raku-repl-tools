@@ -1,0 +1,15 @@
+use Test;
+use Repl::Tools;
+
+plan 2;
+
+my $called = False;
+my @out;
+
+$*OUT = class Out { method print(\c) { @out.push: c} }
+&repl.wrap: { w; $called = True; }
+
+Backtrace::Frame.^find_method('is-setting').wrap: { True }
+Backtrace::Frame.^find_method('subname').wrap: { 'repl' }
+ok repl, 'called repl, which called w';
+like @out[0], / 'current stack' /, 'w said "current stack"'
