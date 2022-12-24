@@ -2,11 +2,15 @@
 
 sub w is hidden-from-backtrace is export {
   put "\n--- current stack --- ";
-  my $b = Backtrace.new;
-  my $first = True;
-  put $b.concise;
-  my $f = $b.first(:k, {!.is-setting && !.is-hidden && .is-routine});
-  my $file = $f.file;
+  put Backtrace.new.Str;
+  my $b = Backtrace.new.list;
+  my $repl-frame = $b.first(:k, {.?subname.defined && .?subname eq 'repl' && .is-setting });
+  without $repl-frame {
+    die "Repl::Tools::w was called without a repl";
+  }
+  my $f = $b[$repl-frame ^.. *].first({!.is-setting && !.is-hidden });
+  return without $f;
+  my $file = $f.file.subst(/ ' (' <-[)]>+ ')' $$/,'');
   my $line = $f.line;
   put "\n-- current file ($file) --";
   my $width = $line.chars + 2;
